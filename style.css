@@ -1,62 +1,91 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#0d0d0d;
-color:white;
+    background:#000;
+    color:#fff;
 }
 
 header{
-background:#111;
-padding:20px;
-text-align:center;
-border-bottom:2px solid gold;
+    background:#111;
+    padding:20px;
+    text-align:center;
+    border-bottom:3px solid #FFD700;
 }
 
-header h1{
-font-size:40px;
-color:gold;
+.logo{
+    font-size:36px;
+    color:#FFD700;
+    font-weight:bold;
 }
 
-header p{
-color:#ddd;
-margin-top:8px;
+nav{
+    margin-top:15px;
 }
 
-section{
-padding:50px 20px;
-text-align:center;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:18px;
+    transition:.3s;
 }
 
-h2{
-font-size:32px;
-color:gold;
-margin-bottom:20px;
+nav a:hover{
+    color:#FFD700;
 }
 
-p{
-font-size:18px;
-line-height:1.6;
+.hero{
+    background:url("https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80") center/cover;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.overlay{
+    background:rgba(0,0,0,.75);
+    padding:40px;
+    border-radius:20px;
+    width:100%;
+    max-width:500px;
+}
+
+.hero h1{
+    color:#FFD700;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
 }
 
 button{
-background:gold;
-color:black;
-padding:15px 35px;
-border:none;
-border-radius:50px;
-font-size:18px;
-font-weight:bold;
-margin-top:20px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-background:#ffd700;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:50px;
+    background:#FFD700;
+    color:#000;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:15px;
 }
