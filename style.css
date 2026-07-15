@@ -352,3 +352,10 @@ font-size:30px;
     transform:translateY(-10px);
     box-shadow:0 15px 30px rgba(255,215,0,.35);
 }
+.review-card{
+    transition:.3s;
+}
+
+.review-card:hover{
+    transform:scale(1.03);
+}
