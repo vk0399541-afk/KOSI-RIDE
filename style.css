@@ -322,3 +322,24 @@ font-size:30px;
     transform:translateY(-5px) scale(1.05);
     box-shadow:0 15px 35px rgba(255,215,0,.4);
 }
+.booking-box{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.booking-box input{
+    border-radius:15px;
+    border:none;
+    padding:18px;
+    font-size:18px;
+}
+
+.booking-box button{
+    border-radius:15px;
+    font-size:20px;
+    font-weight:700;
+}
