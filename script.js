@@ -1,28 +1,21 @@
 function estimateFare() {
-    const km = document.querySelector('input[type="number"]').value;
+    let pickup = document.getElementById("pickup").value;
+    let destination = document.getElementById("destination").value;
+    let distance = parseFloat(document.getElementById("distance").value);
 
-    if (!km || km <= 0) {
-        alert("Please enter distance.");
+    if (!pickup || !destination || isNaN(distance) || distance <= 0) {
+        alert("Please fill all details.");
         return;
     }
 
-    const fare = km * 15;
+    let fare = 80 + (distance * 15);
 
-    alert("Estimated Fare: ₹" + fare);
-
-    const pickup = document.querySelectorAll("input")[0].value;
-    const destination = document.querySelectorAll("input")[1].value;
-
-    const msg =
-`🚖 KOSI RIDE Booking
-
-Pickup: ${pickup}
-Destination: ${destination}
-Distance: ${km} KM
-
-Estimated Fare: ₹${fare}`;
-
-    window.open("https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(msg));
+    alert(
+        "Pickup: " + pickup +
+        "\nDestination: " + destination +
+        "\nDistance: " + distance + " KM" +
+        "\nEstimated Fare: ₹" + fare
+    );
 }
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function(e) {
