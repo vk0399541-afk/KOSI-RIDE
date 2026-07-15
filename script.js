@@ -32,3 +32,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
   });
 });
+// Navbar Shadow
+window.addEventListener("scroll",function(){
+const nav=document.querySelector("nav");
+if(window.scrollY>50){
+nav.style.boxShadow="0 5px 20px rgba(255,215,0,.25)";
+}else{
+nav.style.boxShadow="none";
+}
+});
