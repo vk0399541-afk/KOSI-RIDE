@@ -16,9 +16,8 @@ Pickup: ${pickup}
 Destination: ${destination}
 Distance: ${km} KM
 Estimated Fare: ₹${fare}`;
-
 window.open(
-  "https://wa.me/?text=" + encodeURIComponent(msg),
+  "https://wa.me/911111111111?text=" + encodeURIComponent(msg),
   "_blank"
 );
 }
