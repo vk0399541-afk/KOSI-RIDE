@@ -1,4 +1,4 @@
-function estimateFare() {
+koolfunction estimateFare() {
     let pickup = document.getElementById("pickup").value;
     let destination = document.getElementById("destination").value;
     let distance = parseFloat(document.getElementById("distance").value);
@@ -53,4 +53,19 @@ document.querySelectorAll("section,.service-card,.booking-card,.review-card").fo
     el.style.transform="translateY(60px)";
     el.style.transition="all 0.8s ease";
     observer.observe(el);
+});
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.opacity="0";
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},700);
+
+},1800);
+
 });
