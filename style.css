@@ -171,3 +171,72 @@ font-size:18px;
 }
 
 }
+/* ===== FIX HERO ===== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    text-align:center;
+}
+
+.navbar{
+    position:absolute;
+    top:20px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+}
+
+.hero-content{
+    margin-top:100px;
+    max-width:700px;
+    width:100%;
+    padding:20px;
+}
+
+.booking-box{
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+
+.navbar{
+    position:static;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.hero-content{
+    margin-top:30px;
+}
+
+.hero h1{
+    font-size:56px;
+}
+
+.hero p{
+    font-size:22px;
+    line-height:1.6;
+}
+
+.booking-box{
+    width:95%;
+}
+
+.card{
+    max-width:100%;
+}
+}
