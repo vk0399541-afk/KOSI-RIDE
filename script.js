@@ -10,12 +10,17 @@ function estimateFare() {
 
     let fare = 80 + (distance * 15);
 
-    alert(
-        "Pickup: " + pickup +
-        "\nDestination: " + destination +
-        "\nDistance: " + distance + " KM" +
-        "\nEstimated Fare: ₹" + fare
-    );
+   const msg = `🚖 KOSI RIDE Booking
+
+Pickup: ${pickup}
+Destination: ${destination}
+Distance: ${km} KM
+Estimated Fare: ₹${fare}`;
+
+window.open(
+  "https://wa.me/?text=" + encodeURIComponent(msg),
+  "_blank"
+);
 }
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function(e) {
