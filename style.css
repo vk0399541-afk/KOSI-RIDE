@@ -452,3 +452,36 @@ button{
 button:hover{
   transform:scale(1.05);
 }
+/* ===== Premium Glass Effect ===== */
+
+.booking-card,
+.service-card,
+.review-card{
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+}
+
+input{
+    background:rgba(255,255,255,.95);
+    border:none;
+    transition:.3s;
+}
+
+input:focus{
+    transform:scale(1.02);
+    box-shadow:0 0 20px rgba(255,215,0,.5);
+}
+
+button{
+    background:linear-gradient(135deg,#FFD700,#FFC107);
+    transition:.35s;
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 10px 30px rgba(255,215,0,.45);
+}
