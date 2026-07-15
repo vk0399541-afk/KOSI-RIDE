@@ -210,3 +210,78 @@ font-size:18px;
 }
 
 }
+/* ===== Responsive Navbar ===== */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#FFD700;
+}
+
+.menu{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:600;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#FFD700;
+}
+
+.hero-content{
+max-width:600px;
+margin:auto;
+text-align:center;
+padding:20px;
+}
+
+.booking-box{
+width:100%;
+max-width:450px;
+margin:30px auto;
+}
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+}
+
+.menu{
+justify-content:center;
+margin-top:15px;
+}
+
+.menu a{
+font-size:16px;
+}
+
+.logo{
+font-size:26px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+}
