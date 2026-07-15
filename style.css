@@ -285,3 +285,87 @@ font-size:20px;
 }
 
 }
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+@media (max-width:768px){
+
+.navbar{
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:15px;
+}
+
+.navbar ul{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+padding:10px 0;
+margin:0;
+list-style:none;
+}
+
+.hero{
+padding:40px 15px;
+height:auto;
+}
+
+.hero-content{
+width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.hero-content h1{
+font-size:42px;
+line-height:1.2;
+margin-bottom:15px;
+}
+
+.hero-content p{
+font-size:20px;
+line-height:1.5;
+margin-bottom:25px;
+max-width:95%;
+}
+
+.booking-box{
+width:95%;
+max-width:400px;
+margin:auto;
+padding:20px;
+}
+
+.booking-box input{
+width:100%;
+font-size:18px;
+margin-bottom:15px;
+}
+
+.booking-box button{
+width:100%;
+font-size:20px;
+margin-bottom:15px;
+}
+
+.services{
+padding:50px 20px;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.service-card{
+width:100%;
+margin:auto;
+}
+
+}
