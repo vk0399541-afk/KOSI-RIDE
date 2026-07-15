@@ -1,48 +1,26 @@
-// Fare Estimator
 function estimateFare() {
+    const km = document.querySelector('input[type="number"]').value;
 
-const distance = parseFloat(document.querySelectorAll("input")[2].value);
+    if (!km || km <= 0) {
+        alert("Please enter distance.");
+        return;
+    }
 
-if (isNaN(distance) || distance <= 0) {
-    alert("Please enter a valid distance.");
-    return;
-}
+    const fare = km * 15;
 
-const baseFare = 50;
-const perKm = 15;
+    alert("Estimated Fare: ₹" + fare);
 
-const total = baseFare + (distance * perKm);
+    const pickup = document.querySelectorAll("input")[0].value;
+    const destination = document.querySelectorAll("input")[1].value;
 
-alert("Estimated Fare: ₹" + total);
+    const msg =
+`🚖 KOSI RIDE Booking
 
-}
+Pickup: ${pickup}
+Destination: ${destination}
+Distance: ${km} KM
 
-// Mobile Menu
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+Estimated Fare: ₹${fare}`;
 
-if(menuBtn){
-
-menuBtn.addEventListener("click",()=>{
-
-if(navLinks.style.display==="flex"){
-
-navLinks.style.display="none";
-
-}else{
-
-navLinks.style.display="flex";
-navLinks.style.flexDirection="column";
-navLinks.style.position="absolute";
-navLinks.style.top="70px";
-navLinks.style.right="20px";
-navLinks.style.background="#111";
-navLinks.style.padding="20px";
-navLinks.style.borderRadius="10px";
-navLinks.style.gap="15px";
-
-}
-
-});
-
+    window.open("https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(msg));
 }
