@@ -38,3 +38,19 @@ nav.style.boxShadow="0 5px 20px rgba(255,215,0,.25)";
 nav.style.boxShadow="none";
 }
 });
+// Premium Scroll Animation
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.style.opacity="1";
+            entry.target.style.transform="translateY(0)";
+        }
+    });
+},{threshold:0.15});
+
+document.querySelectorAll("section,.service-card,.booking-card,.review-card").forEach(el=>{
+    el.style.opacity="0";
+    el.style.transform="translateY(60px)";
+    el.style.transition="all 0.8s ease";
+    observer.observe(el);
+});
