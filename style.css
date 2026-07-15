@@ -521,3 +521,30 @@ to{
 transform:translateX(40px);
 }
 }
+
+.hero h1{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px gold;
+}
+
+to{
+text-shadow:
+0 0 20px gold,
+0 0 40px gold,
+0 0 70px orange;
+}
+
+}
+
+.service-card:hover{
+
+transform:translateY(-12px) scale(1.03);
+
+transition:.4s;
+
+}
