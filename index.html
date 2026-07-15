@@ -3,102 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KOSI RIDE</title>
+<title>KOSI RIDE | Taxi Booking</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
 
-<header class="hero">
+<header>
 
 <nav class="navbar">
 
-<div class="logo">🚖 KOSI RIDE</div>
+<div class="logo">
+🚖 KOSI RIDE
+</div>
 
-<div class="menu">
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#booking">Book Ride</a>
-<a href="#contact">Contact</a>
+<ul class="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#booking">Booking</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="menu-btn">
+<i class="fas fa-bars"></i>
 </div>
 
 </nav>
 
-<div class="hero-content"> 
+<section class="hero">
 
-<h1>Book Your Ride in Seconds</h1>
+<div class="hero-left">
+
+<h1>Book Your Ride In Seconds</h1>
 
 <p>
-Fast • Safe • Affordable Taxi Service
+Safe • Fast • Affordable Taxi Service
 in Saharsa & Nearby Areas
 </p>
 
-<div class="booking-box">
+<a href="#booking" class="btn">
+Book Now
+</a>
 
-<input
-type="text"
-placeholder="📍 Pickup Location">
+</div>
 
-<input
-type="text"
-placeholder="📍 Destination">
+<div class="hero-right">
 
-<input
-type="number"
-placeholder="Approx Distance (KM)">
+<div class="booking-box" id="booking">
+
+<h2>Ride Booking</h2>
+
+<input type="text" placeholder="Pickup Location">
+
+<input type="text" placeholder="Destination">
+
+<input type="number" placeholder="Distance (KM)">
 
 <button onclick="estimateFare()">
-💰 Estimate Fare
+Estimate Fare
 </button>
 
-<a href="tel:1111111111">
-<button>
+<a href="tel:+911111111111" class="call-btn">
 📞 Call Now
-</button>
 </a>
 
-<a href="https://wa.me/911111111111">
-<button>
-💬 WhatsApp Booking
-</button>
+<a href="https://wa.me/911111111111" class="whatsapp-btn">
+💬 WhatsApp
 </a>
 
-</div>
-
-</div>
-
-</header>
-
-<section id="services">
-
-<h2>Our Services</h2>
-
-<div class="cards">
-
-<div class="card">
-🚕
-<h3>Local Ride</h3>
-<p>Affordable city rides.</p>
-</div>
-
-<div class="card">
-✈️
-<h3>Airport Pickup</h3>
-<p>24×7 Airport Taxi.</p>
-</div>
-
-<div class="card">
-🏙️
-<h3>Outstation</h3>
-<p>Anywhere in Bihar.</p>
 </div>
 
 </div>
 
 </section>
+
+</header>
+<section id="services" class="services">
+
+<h2>Our Services</h2>
+
+<div class="service-grid">
+
+<div class="service-card">
+<i class="fas fa-taxi"></i>
+<h3>Local Ride</h3>
+<p>Affordable rides within the city.</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-plane"></i>
+<h3>Airport Pickup</h3>
+<p>24×7 airport pickup and drop service.</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-route"></i>
+<h3>Outstation</h3>
+<p>Comfortable outstation trips across Bihar.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Best taxi service in Saharsa. Very fast and affordable."</p>
+<h4>- Rahul Kumar</h4>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Clean cars and polite drivers. Highly recommended."</p>
+<h4>- Priya Singh</h4>
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h2>Contact Us</h2>
+
+<p>📞 +91 1111111111</p>
+
+<p>📍 Saharsa, Bihar</p>
+
+<p>© 2026 KOSI RIDE. All Rights Reserved.</p>
+
+</footer>
 
 <script src="script.js"></script>
 
