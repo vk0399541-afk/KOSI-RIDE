@@ -69,3 +69,17 @@ document.getElementById("loader").style.display="none";
 },1800);
 
 });
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+            loader.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                loader.remove();
+            }, 500);
+        }
+    }, 1800);
+});
