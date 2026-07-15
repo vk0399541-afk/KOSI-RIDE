@@ -9,7 +9,10 @@ html{
 scroll-behavior:smooth;
 }
 
-body{
+body{<div id="loader">
+    <div class="taxi-loader">🚕</div>
+    <h2>KOSI RIDE</h2>
+</div>
 background:#0f0f0f;
 color:#fff;
 line-height:1.6;
