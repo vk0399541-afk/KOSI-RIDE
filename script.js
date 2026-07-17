@@ -333,3 +333,27 @@ window.addEventListener("load", function () {
         }
     }, 2000);
 });
+const destinationInput = document.getElementById("destination");
+
+destinationInput.addEventListener("input", async function () {
+
+    const query = this.value.trim();
+
+    if (query.length < 3) return;
+
+    try {
+        const res = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`
+        );
+
+        const data = await res.json();
+
+        if (data.length > 0) {
+            destinationInput.value = data[0].display_name;
+        }
+
+    } catch (e) {
+        console.log(e);
+    }
+
+});
