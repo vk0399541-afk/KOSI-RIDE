@@ -419,7 +419,7 @@ async function showRoute(pickup, destination) {
         .bindPopup("Destination");
 
     const res = await fetch(
-`https://api.heigit.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${pickupCoord[0]},${pickupCoord[1]}&end=${destinationCoord[0]},${destinationCoord[1]}`
+`https://api.heigit.org/openrouteservice/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${pickupCoord[0]},${pickupCoord[1]}&end=${destinationCoord[0]},${destinationCoord[1]}`
 );
 
     const data = await res.json();
