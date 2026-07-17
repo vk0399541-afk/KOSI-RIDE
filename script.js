@@ -305,6 +305,21 @@ locationBtn.innerHTML="📍 Use My Current Location";
 });
 
 }
+
+async function getCoordinates(place) {
+    const res = await fetch(
+        `https://api.openrouteservice.org/geocode/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(place)}`
+    );
+
+    const data = await res.json();
+
+    if (!data.features || data.features.length === 0) {
+        throw new Error("Location not found");
+    }
+
+    return data.features[0].geometry.coordinates;
+}
+
 function openGoogleMaps() {
     const pickup = document.getElementById("pickup").value;
     const destination = document.getElementById("destination").value;
