@@ -268,9 +268,6 @@ navigator.geolocation.getCurrentPosition(
 
 const lat=position.coords.latitude.toFixed(6);
 
-const lng=position.coords.longitude.toFixed(6);
-const lat = position.coords.latitude.toFixed(6);
-
 const lng = position.coords.longitude.toFixed(6);
 
 locationBtn.innerHTML = "Getting Address...";
