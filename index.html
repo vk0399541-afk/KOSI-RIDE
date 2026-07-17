@@ -35,14 +35,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <li><a href="#contact">Contact</a></li>
 </ul>
 
-<div class="menu-btn">
+<div class="menu-btn" onclick="toggleMenu()">
 <i class="fas fa-bars"></i>
 </div>
 
 </nav>
 
 <section class="hero">
-
+  
 <div class="hero-left">
 
 <h1>Book Your Ride In Seconds</h1>
@@ -65,14 +65,57 @@ Book Now
 <h2>Ride Booking</h2>
 
 <input type="text" id="pickup" placeholder="Pickup Location">
+<button type="button" id="locationBtn">
+📍 Use My Current Location
+</button>
 
 <input type="text" id="destination" placeholder="Destination">
+<input type="date" id="rideDate">
+
+<input type="time" id="rideTime">
+
+<select id="cabType">
+    <option value="bike">🏍️ Bike</option>
+    <option value="mini">🚕 Mini</option>
+    <option value="sedan">🚗 Sedan</option>
+    <option value="suv">🚙 SUV</option>
+</select>
 
 <input type="number" id="distance" placeholder="Distance (KM)">
-
+<input type="text" id="promoCode" placeholder="Promo Code (Optional)">
+<select id="paymentMethod">
+    <option value="Cash">💵 Cash</option>
+    <option value="UPI">📱 UPI</option>
+    <option value="Card">💳 Card</option>
+</select>
 <button onclick="estimateFare()">
 Estimate Fare
 </button>
+
+<div id="bookingStatus"></div>
+
+<h3>📋 Booking History</h3>
+<div id="bookingHistory"></div>
+
+<h3>💰 Fare Summary</h3>
+<div id="fareSummary"></div>
+
+<h3>🚖 Driver Tracking</h3>
+<div id="driverTracking">
+    Driver Status: Waiting for Booking...
+</div>
+
+<h3>👨 Driver Details</h3>
+<div id="driverDetails"></div>
+
+<h3>📍 Live Driver Location</h3>
+<div id="liveLocation">
+    Driver Location: Not Available
+</div>
+<h3>🔐 Ride OTP</h3>
+<div id="rideOtp"></div>
+
+<button onclick="openGoogleMaps()">🗺 Open in Google Maps</button>
 
 <a href="tel:+911111111111" class="call-btn">
 📞 Call Now
@@ -81,6 +124,10 @@ Estimate Fare
 <a href="https://wa.me/911111111111" class="whatsapp-btn">
 💬 WhatsApp
 </a>
+
+<h3>📍 Ride Route</h3>
+
+<div id="map"></div>
 
 </div>
 
@@ -116,7 +163,62 @@ Estimate Fare
 </div>
 
 </section>
+<section class="why-us">
 
+<h2>Why Choose KOSI RIDE?</h2>
+
+<div class="why-grid">
+
+<div class="why-card">
+<i class="fas fa-shield-alt"></i>
+<h3>100% Safe Ride</h3>
+<p>Verified drivers with secure and reliable service.</p>
+</div>
+
+<div class="why-card">
+<i class="fas fa-clock"></i>
+<h3>24×7 Available</h3>
+<p>Book your ride anytime, day or night.</p>
+</div>
+
+<div class="why-card">
+<i class="fas fa-wallet"></i>
+<h3>Affordable Fare</h3>
+<p>Transparent pricing with no hidden charges.</p>
+</div>
+
+<div class="why-card">
+<i class="fas fa-star"></i>
+<h3>Top Rated</h3>
+<p>Trusted by hundreds of happy customers.</p>
+</div>
+
+</div>
+
+</section>
+<section class="stats">
+
+<div class="stat-box">
+<h2>5000+</h2>
+<p>Completed Rides</p>
+</div>
+
+<div class="stat-box">
+<h2>1200+</h2>
+<p>Happy Customers</p>
+</div>
+
+<div class="stat-box">
+<h2>24×7</h2>
+<p>Customer Support</p>
+</div>
+
+<div class="stat-box">
+<h2>4.9★</h2>
+<p>Customer Rating</p>
+</div>
+
+</section>
 <section class="reviews">
 
 <h2>Customer Reviews</h2>
@@ -134,7 +236,33 @@ Estimate Fare
 </div>
 
 </section>
+<section class="map-section">
 
+<h2>Find Us</h2>
+
+<div class="map-container">
+
+<iframe
+src="https://www.google.com/maps?q=Saharsa,Bihar&output=embed"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="contact-card">
+
+<h3>🚖 KOSI RIDE</h3>
+
+<p>📍 Saharsa, Bihar</p>
+
+<p>📞 +91 1111111111</p>
+
+<p>📧 support@kosiride.in</p>
+
+</div>
+
+</section>
 <footer id="contact">
 
 <h2>Contact Us</h2>
@@ -144,10 +272,52 @@ Estimate Fare
 <p>📍 Saharsa, Bihar</p>
 
 <p>© 2026 KOSI RIDE. All Rights Reserved.</p>
-
 </footer>
 
+<section class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<details>
+<summary>How can I book a ride?</summary>
+<p>Enter pickup, destination and distance, then click Estimate Fare or contact us directly.</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>Is KOSI RIDE available 24×7?</summary>
+<p>Yes, our taxi service is available day and night.</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>Do you provide outstation rides?</summary>
+<p>Yes, we provide outstation taxi service across Bihar and nearby states.</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>Which payment methods are accepted?</summary>
+<p>Cash, UPI and other digital payment methods are accepted.</p>
+</details>
+</div>
+
+</section></footer><!-- Floating Buttons -->
+<a href="tel:+911111111111" class="floating-call">
+    <i class="fas fa-phone"></i>
+</a>
+
+<a href="https://wa.me/911111111111" target="_blank" class="floating-whatsapp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+</section>
 <script src="script.js"></script>
+
+<script async
 
 </body>
 </html>
