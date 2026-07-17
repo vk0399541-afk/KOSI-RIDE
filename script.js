@@ -1,3 +1,10 @@
+// ===== OpenRouteService API =====
+const ORS_API_KEY = "PASTE_YOUR_API_KEY_HERE";
+
+let pickupLat = null;
+let pickupLng = null;
+let destinationLat = null;
+let destinationLng = null;
 // ===============================
 // KOSI RIDE - script.js
 // ===============================
