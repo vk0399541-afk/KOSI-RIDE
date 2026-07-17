@@ -14,7 +14,19 @@ function estimateFare() {
 
     const pickup = document.getElementById("pickup").value.trim();
     const destination = document.getElementById("destination").value.trim();
-    const distance = parseFloat(document.getElementById("distance").value);
+const pickupCoord = await getCoordinates(pickup);
+const destinationCoord = await getCoordinates(destination);
+
+const res = await fetch(
+`https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${pickupCoord[0]},${pickupCoord[1]}&end=${destinationCoord[0]},${destinationCoord[1]}`
+);
+
+const route = await res.json();
+
+const distance =
+(route.features[0].properties.summary.distance / 1000).toFixed(1);
+
+document.getElementById("distance").value = distance;
 const rideDate = document.getElementById("rideDate").value;
 const rideTime = document.getElementById("rideTime").value;
     if (!pickup || !destination || isNaN(distance) || distance <= 0) {
