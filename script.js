@@ -1,5 +1,5 @@
 // ===== OpenRouteService API =====
-const ORS_API_KEY = "PASTE_YOUR_API_KEY_HERE";
+const ORS_API_KEY = eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6Ijc3ZmRmZTIwNzAwNTRlMTNhNmUxNmY0YWMxNzQ0OWZjIiwiaCI6Im11cm11cjY0In0=
 
 let pickupLat = null;
 let pickupLng = null;
