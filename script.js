@@ -10,7 +10,7 @@ let destinationLng = null;
 // ===============================
 
 // Fare Calculator + WhatsApp Booking
-function estimateFare() {
+async function estimateFare() {
 
     const pickup = document.getElementById("pickup").value.trim();
     const destination = document.getElementById("destination").value.trim();
