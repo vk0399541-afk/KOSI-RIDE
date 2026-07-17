@@ -269,10 +269,22 @@ navigator.geolocation.getCurrentPosition(
 const lat=position.coords.latitude.toFixed(6);
 
 const lng=position.coords.longitude.toFixed(6);
+const lat = position.coords.latitude.toFixed(6);
 
-document.getElementById("pickup").value=lat+", "+lng;
+const lng = position.coords.longitude.toFixed(6);
 
-locationBtn.innerHTML="✅ Location Added";
+locationBtn.innerHTML = "Getting Address...";
+
+fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`)
+.then(response => response.json())
+.then(data => {
+    document.getElementById("pickup").value = data.display_name;
+    locationBtn.innerHTML = "✅ Location Added";
+})
+.catch(() => {
+    document.getElementById("pickup").value = lat + ", " + lng;
+    locationBtn.innerHTML = "✅ Location Added";
+});
 
 },
 
