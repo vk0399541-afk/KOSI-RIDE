@@ -321,7 +321,7 @@ locationBtn.innerHTML="📍 Use My Current Location";
 
 async function getCoordinates(place) {
     const res = await fetch(
-        `https://api.openrouteservice.org/geocode/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(place)}`
+`https://api.heigit.org/pelias/v1/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(place)}`
     );
 
     const data = await res.json();
