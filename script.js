@@ -391,3 +391,44 @@ destinationInput.addEventListener("input", async function () {
     }
 
 });
+
+async function showRoute(pickup, destination) {
+
+    const pickupCoord = await getCoordinates(pickup);
+    const destinationCoord = await getCoordinates(destination);
+
+    if (window.map) {
+        window.map.remove();
+    }
+
+    window.map = L.map('map').setView(
+        [pickupCoord[1], pickupCoord[0]], 12
+    );
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(window.map);
+
+    L.marker([pickupCoord[1], pickupCoord[0]])
+        .addTo(window.map)
+        .bindPopup("Pickup");
+
+    L.marker([destinationCoord[1], destinationCoord[0]])
+        .addTo(window.map)
+        .bindPopup("Destination");
+
+    const res = await fetch(
+        `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${pickupCoord[0]},${pickupCoord[1]}&end=${destinationCoord[0]},${destinationCoord[1]}`
+    );
+
+    const data = await res.json();
+
+    const coords = data.features[0].geometry.coordinates.map(c => [c[1], c[0]]);
+
+    L.polyline(coords, {
+        color: "blue",
+        weight: 5
+    }).addTo(window.map);
+
+    window.map.fitBounds(L.polyline(coords).getBounds());
+}
