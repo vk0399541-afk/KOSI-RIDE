@@ -27,7 +27,7 @@ const distance =
 (route.features[0].properties.summary.distance / 1000).toFixed(1);
 
 document.getElementById("distance").value = distance;
-// await showRoute(pickup, destination);
+await showRoute(pickup, destination);
 const rideDate = document.getElementById("rideDate").value;
 const rideTime = document.getElementById("rideTime").value;
     if (!pickup || !destination || isNaN(distance) || distance <= 0) {
