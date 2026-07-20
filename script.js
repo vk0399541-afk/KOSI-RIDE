@@ -325,6 +325,7 @@ async function getCoordinates(place) {
     );
 
     const data = await res.json();
+console.log(data);
 
     if (!data.features || data.features.length === 0) {
         throw new Error("Location not found");
