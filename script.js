@@ -425,6 +425,10 @@ async function showRoute(pickup, destination) {
 
     const data = await res.json();
 
+alert("Status: " + res.status);
+alert(JSON.stringify(data));
+console.log(data);
+
     const coords = data.features[0].geometry.coordinates.map(c => [c[1], c[0]]);
 
     L.polyline(coords, {
