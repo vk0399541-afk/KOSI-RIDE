@@ -1659,3 +1659,44 @@ font-size:16px;
 }
 
 /* ================= END OF STYLE.CSS ================= */
+/* ================= INSTALL BUTTON ================= */
+
+#installAppBtn{
+
+position:fixed;
+
+bottom:90px;
+
+right:20px;
+
+background:linear-gradient(135deg,#FFD700,#FFB800);
+
+color:#000;
+
+font-weight:bold;
+
+padding:15px 25px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+box-shadow:0 10px 30px rgba(255,215,0,.45);
+
+z-index:9999;
+
+animation:floatInstall 2s infinite ease-in-out;
+
+}
+
+@keyframes floatInstall{
+
+0%{transform:translateY(0)}
+
+50%{transform:translateY(-10px)}
+
+100%{transform:translateY(0)}
+
+}
