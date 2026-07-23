@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KOSI RIDE | Ultra Luxury Taxi</title>
+
+<meta name="theme-color" content="#FFD700">
+
+<meta name="description" content="Luxury Taxi Booking Service">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ================= LOADER ================= -->
+
+<div id="loader">
+
+<div class="loader-ring"></div>
+
+<div class="loader-logo">
+
+<i class="fa-solid fa-taxi"></i>
+
+</div>
+
+<h1>KOSI RIDE</h1>
+
+<p>Luxury Ride Experience</p>
+
+</div>
+
+<!-- ================= PARTICLE BACKGROUND ================= -->
+
+<div class="particles">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-taxi"></i>
+
+<span>KOSI RIDE</span>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#services">Services</a></li>
+
+<li><a href="#booking">Book Ride</a></li>
+
+<li><a href="#fleet">Fleet</a></li>
+
+<li><a href="#reviews">Reviews</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<div class="hero-left">
+
+<h1>
+
+Ride The Future
+
+With
+
+<span>KOSI RIDE</span>
+
+</h1>
+
+<p>
+
+Luxury • Fast • Safe • Premium
+
+Taxi Experience Across Bihar
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#booking" class="primary-btn">
+
+Book Now
+
+</a>
+
+<a href="#services" class="secondary-btn">
+
+Explore
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ================= BOOKING CARD ================= -->
+
+<div class="booking-card" id="booking">
+
+<h2>
+
+Book Your Ride
+
+</h2>
+
+<label>Pickup Location</label>
+
+<input
+type="text"
+id="pickup"
+placeholder="Enter Pickup Location">
+
+<button id="locationBtn">
+
+📍 Use Current Location
+
+</button>
+
+<label>Destination</label>
+
+<input
+type="text"
+id="destination"
+placeholder="Enter Destination">
+
+<label>Select Date</label>
+
+<input
+type="date"
+id="rideDate">
+
+<label>Select Time</label>
+
+<input
+type="time"
+id="rideTime">
+
+<label>Select Vehicle</label>
+
+<select id="cabType">
+
+<option value="bike">🏍 Bike</option>
+
+<option value="mini">🚕 Mini</option>
+
+<option value="sedan">🚗 Sedan</option>
+
+<option value="suv">🚙 SUV</option>
+
+<option value="luxury">🚘 Luxury</option>
+
+</select>
+
+<label>Promo Code</label>
+
+<input
+type="text"
+id="promoCode"
+placeholder="Optional">
+
+<label>Payment Method</label>
+
+<select id="paymentMethod">
+
+<option>Cash</option>
+
+<option>UPI</option>
+
+<option>Card</option>
+
+</select>
+
+<button class="book-btn"
+onclick="completeBooking()">
+
+🚖 Book Ride
+
+</button>
+<!-- ================= FARE SUMMARY ================= -->
+
+<div class="fare-card">
+
+<h3>💰 Fare Summary</h3>
+
+<div class="fare-row">
+
+<span>Distance</span>
+
+<span id="distanceText">0 KM</span>
+
+</div>
+
+<div class="fare-row">
+
+<span>Estimated Fare</span>
+
+<span id="fareText">₹0</span>
+
+</div>
+
+<div class="fare-row">
+
+<span>ETA</span>
+
+<span id="etaText">-- Min</span>
+
+</div>
+
+</div>
+
+<!-- ================= BOOKING STATUS ================= -->
+
+<div class="status-card">
+
+<h3>📡 Ride Status</h3>
+
+<p id="bookingStatus">
+
+Waiting For Booking...
+
+</p>
+
+</div>
+
+<!-- ================= DRIVER DETAILS ================= -->
+
+<div class="driver-card">
+
+<div class="driver-top">
+
+<img src="https://i.pravatar.cc/150?img=12"
+
+class="driver-img">
+
+<div>
+
+<h3 id="driverName">
+
+No Driver Assigned
+
+</h3>
+
+<p id="driverRating">
+
+★★★★★
+
+</p>
+
+</div>
+
+</div>
+
+<p id="driverCar">
+
+Vehicle : --
+
+</p>
+
+<p id="driverNumber">
+
+Number : --
+
+</p>
+
+</div>
+
+<!-- ================= OTP ================= -->
+
+<div class="otp-card">
+
+<h3>
+
+🔐 Ride OTP
+
+</h3>
+
+<div id="rideOtp">
+
+----
+
+</div>
+
+</div>
+
+<!-- ================= LIVE MAP ================= -->
+
+<div class="map-card">
+
+<h3>
+
+🗺 Live Route
+
+</h3>
+
+<div id="map"></div>
+
+</div>
+
+<!-- ================= SOS ================= -->
+
+<button class="sos-btn">
+
+🚨 Emergency SOS
+
+</button>
+
+<!-- ================= ACTION BUTTONS ================= -->
+
+<div class="booking-buttons">
+
+<button
+
+class="google-btn"
+
+onclick="openGoogleMaps()">
+
+<i class="fa-solid fa-map-location-dot"></i>
+
+Open Google Maps
+
+</button>
+
+<a
+
+href="tel:+911111111111"
+
+class="call-btn">
+
+<i class="fa-solid fa-phone"></i>
+
+Call Driver
+
+</a>
+
+<a
+
+href="https://wa.me/911111111111"
+
+target="_blank"
+
+class="whatsapp-btn">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services"
+
+id="services">
+
+<div class="section-title">
+
+<h2>
+
+Premium Services
+
+</h2>
+
+<p>
+
+Designed For Every Journey
+
+</p>
+
+</div>
+
+<div class="service-grid">
+
+<div class="service-card">
+
+<i class="fa-solid fa-city"></i>
+
+<h3>City Ride</h3>
+
+<p>
+
+Fast & Affordable City Travel
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-solid fa-road"></i>
+
+<h3>Outstation</h3>
+
+<p>
+
+Comfortable Long Distance Trips
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-solid fa-plane"></i>
+
+<h3>Airport Pickup</h3>
+
+<p>
+
+24×7 Airport Transfer
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>Corporate</h3>
+
+<p>
+
+Premium Business Travel
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-solid fa-crown"></i>
+
+<h3>Luxury Ride</h3>
+
+<p>
+
+Luxury Cars With VIP Experience
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<i class="fa-solid fa-clock"></i>
+
+<h3>Hourly Rental</h3>
+
+<p>
+
+Book Taxi By Hour
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FLEET ================= -->
+
+<section class="fleet"
+
+id="fleet">
+
+<div class="section-title">
+
+<h2>
+
+Choose Your Ride
+
+</h2>
+
+</div>
+
+<div class="fleet-grid">
+
+<div class="fleet-card">
+
+<div class="fleet-icon">
+
+🏍
+
+</div>
+
+<h3>Bike</h3>
+
+<p>
+
+Affordable Solo Ride
+
+</p>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-icon">
+
+🚕
+
+</div>
+
+<h3>Mini</h3>
+
+<p>
+
+Budget Friendly
+
+</p>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-icon">
+
+🚗
+
+</div>
+
+<h3>Sedan</h3>
+
+<p>
+
+Comfort Ride
+
+</p>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-icon">
+
+🚙
+
+</div>
+
+<h3>SUV</h3>
+
+<p>
+
+Family Trip
+
+</p>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-icon">
+
+🏆
+
+</div>
+
+<h3>Luxury</h3>
+
+<p>
+
+Mercedes • BMW • Audi
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-us">
+
+<div class="section-title">
+
+<h2>Why Choose KOSI RIDE</h2>
+
+<p>Premium Experience Every Time</p>
+
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+<i class="fa-solid fa-user-shield"></i>
+<h3>Verified Drivers</h3>
+<p>100% Background Verified Professional Drivers.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-headset"></i>
+<h3>24×7 Support</h3>
+<p>Customer Support Anytime.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-location-dot"></i>
+<h3>Live Tracking</h3>
+<p>Track Your Ride Live.</p>
+</div>
+
+<div class="why-card">
+<i class="fa-solid fa-wallet"></i>
+<h3>Affordable Fare</h3>
+<p>No Hidden Charges.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews" id="reviews">
+
+<div class="section-title">
+
+<h2>Customer Reviews</h2>
+
+</div>
+
+<div class="review-grid">
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+Amazing Taxi Service. Driver Was Very Polite.
+
+</p>
+
+<h4>- Rahul Kumar</h4>
+
+</div>
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+Luxury Experience At Affordable Price.
+
+</p>
+
+<h4>- Neha Singh</h4>
+
+</div>
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+Best Taxi Service In Bihar.
+
+</p>
+
+<h4>- Aman Raj</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+<div class="stat-box">
+
+<h2>10K+</h2>
+
+<p>Happy Customers</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>500+</h2>
+
+<p>Drivers</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>4.9★</h2>
+
+<p>Rating</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>24×7</h2>
+
+<p>Support</p>
+
+</div>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="faq">
+
+<div class="section-title">
+
+<h2>Frequently Asked Questions</h2>
+
+</div>
+
+<div class="faq-box">
+
+<details>
+
+<summary>How To Book Ride?</summary>
+
+<p>Fill Pickup, Destination & Click Book Ride.</p>
+
+</details>
+
+<details>
+
+<summary>Can I Pay Online?</summary>
+
+<p>Yes. UPI, Card & Cash Supported.</p>
+
+</details>
+
+<details>
+
+<summary>Is Driver Verified?</summary>
+
+<p>Yes, Every Driver Is Verified.</p>
+
+</details>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<div class="section-title">
+
+<h2>Contact Us</h2>
+
+</div>
+
+<div class="contact-box">
+
+<p>📍 Saharsa, Bihar</p>
+
+<p>📞 +91 1111111111</p>
+
+<p>📧 support@kosiride.in</p>
+
+</div>
+
+</section>
+
+<!-- ================= RIDE HISTORY ================= -->
+
+<div class="history-page">
+
+<div class="history-container">
+
+<div class="history-header">
+
+<h2>📜 Ride History</h2>
+
+<button onclick="closeHistory()">✕</button>
+
+</div>
+
+<div id="bookingHistory">
+
+<p>No Ride History Available</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-logo">
+
+<i class="fa-solid fa-taxi"></i>
+
+<h2>KOSI RIDE</h2>
+
+</div>
+
+<p>
+
+Luxury Taxi Service Across Bihar
+
+</p>
+
+<div class="social-icons">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-x-twitter"></i></a>
+
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+<p class="copyright">
+
+© 2026 KOSI RIDE. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- ================= FLOATING BUTTONS ================= -->
+
+<a href="tel:+911111111111"
+
+class="floating-call">
+
+<i class="fa-solid fa-phone"></i>
+
+</a>
+
+<a href="https://wa.me/911111111111"
+
+target="_blank"
+
+class="floating-whatsapp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<a href="#home"
+
+class="scroll-top">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</a>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
