@@ -747,3 +747,32 @@ sendWhatsAppBooking();
 }
 
 /* ================= END OF SCRIPT.JS ================= */
+// ================= INSTALL APP =================
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const installBtn = document.createElement("button");
+
+    installBtn.innerHTML = "📲 Install KOSI RIDE";
+
+    installBtn.id = "installAppBtn";
+
+    document.body.appendChild(installBtn);
+
+    installBtn.onclick = async () => {
+
+        installBtn.style.display = "none";
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+    };
+
+});
