@@ -2,8 +2,8 @@
   "name": "KOSI RIDE",
   "short_name": "KOSI RIDE",
   "description": "Luxury Taxi Booking Service",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/KOSI-RIDE/",
+"scope": "/KOSI-RIDE/"
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#050505",
